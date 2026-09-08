@@ -1,0 +1,20 @@
+// Ombi design tokens — spacing
+//
+// Base 4px. Values are deliberately identical to Tailwind's default spacing
+// scale (space-4 = Tailwind's `4` = 16px, etc.) so `tw-p-6`/`tw-gap-8` and
+// `var(--ombi-space-6)` always agree — no separate spacing scale to keep in
+// sync by hand.
+
+:root {
+    --ombi-space-1: 4px;
+    --ombi-space-2: 8px;
+    --ombi-space-3: 12px;
+    --ombi-space-4: 16px;
+    --ombi-space-5: 20px;
+    --ombi-space-6: 24px;
+    --ombi-space-8: 32px;
+    --ombi-space-10: 40px;
+    --ombi-space-12: 48px;
+    --ombi-space-16: 64px;
+    --ombi-space-20: 80px;
+}

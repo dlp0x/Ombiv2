@@ -1,0 +1,16 @@
+// Ombi design tokens — elevation
+//
+// Dark: elevation is carried ~90% by surface tone (bg-surface-1/2/3), shadow
+// is a discreet complement only. Light: softer/more present, but always
+// large-blur and low-opacity — never the one generic `rgba(0,0,0,.1)` shadow
+// reused everywhere.
+
+:root {
+    --ombi-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.24), 0 1px 1px rgba(0, 0, 0, 0.16);
+    --ombi-elevation-2: 0 8px 24px rgba(0, 0, 0, 0.40);
+}
+
+[data-theme="light"] {
+    --ombi-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --ombi-elevation-2: 0 12px 32px rgba(0, 0, 0, 0.12);
+}

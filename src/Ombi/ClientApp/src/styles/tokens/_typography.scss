@@ -1,0 +1,43 @@
+// Ombi design tokens — typography
+//
+// One family only (system stack — SF Pro on Apple devices, Inter fallback
+// elsewhere: closest free metric match, not a default-of-convenience). Scale
+// named after Apple HIG vocabulary (display/title/body/...) rather than
+// h1..h6 or text-sm/lg, to keep the lineage of the direction legible in code.
+
+:root {
+    --ombi-font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+
+    --ombi-text-display-size: 34px;
+    --ombi-text-display-line: 40px;
+    --ombi-text-display-weight: 700;
+
+    --ombi-text-title-1-size: 26px;
+    --ombi-text-title-1-line: 32px;
+    --ombi-text-title-1-weight: 700;
+
+    --ombi-text-title-2-size: 20px;
+    --ombi-text-title-2-line: 26px;
+    --ombi-text-title-2-weight: 600;
+
+    --ombi-text-title-3-size: 17px;
+    --ombi-text-title-3-line: 22px;
+    --ombi-text-title-3-weight: 600;
+
+    --ombi-text-body-size: 15px;
+    --ombi-text-body-line: 22px;
+    --ombi-text-body-weight: 400;
+    --ombi-text-body-emphasis-weight: 600;
+
+    --ombi-text-callout-size: 14px;
+    --ombi-text-callout-line: 20px;
+    --ombi-text-callout-weight: 400;
+
+    --ombi-text-footnote-size: 13px;
+    --ombi-text-footnote-line: 18px;
+    --ombi-text-footnote-weight: 400;
+
+    --ombi-text-caption-size: 12px;
+    --ombi-text-caption-line: 16px;
+    --ombi-text-caption-weight: 500;
+}

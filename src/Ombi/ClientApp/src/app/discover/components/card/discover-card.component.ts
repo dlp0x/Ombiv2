@@ -16,7 +16,7 @@ import { ISearchTvResultV2 } from "../../../interfaces/ISearchTvResultV2";
 import { MatDialog } from "@angular/material/dialog";
 import { IMovieRequestModel, RequestType } from "../../../interfaces";
 import { TranslateService } from "@ngx-translate/core";
-import { ImageComponent } from "../../../components";
+import { IconComponent, ImageComponent } from "../../../components";
 
 @Component({
     standalone: true,
@@ -30,7 +30,8 @@ import { ImageComponent } from "../../../components";
         MatMenuModule,
         MatProgressSpinnerModule,
         TranslateModule,
-        ImageComponent
+        ImageComponent,
+        IconComponent
     ]
 })
 export class DiscoverCardComponent implements OnInit {

@@ -1,4 +1,6 @@
-﻿@use "./shared.scss" as *;
+﻿@use "./tokens/index.scss" as *;
+@use "./tailwind.scss" as *;
+@use "./shared.scss" as *;
 @use "./buttons.scss" as *;
 @use "./primeng-overrides.scss" as *;
 @use "./material-overrides.scss" as *;

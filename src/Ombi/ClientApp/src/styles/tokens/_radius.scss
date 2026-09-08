@@ -1,0 +1,14 @@
+// Ombi design tokens — border radius
+//
+// One radius per component family, never two cohabiting on the same type of
+// element. Buttons default to radius-md/sm (not pill) — pill is reserved for
+// chips, tags, filters and specific CTAs. See design-system-proposal
+// -ombiv2-final.md §5.
+
+:root {
+    --ombi-radius-sm: 8px;
+    --ombi-radius-md: 12px;
+    --ombi-radius-lg: 16px;
+    --ombi-radius-xl: 22px;
+    --ombi-radius-full: 999px;
+}

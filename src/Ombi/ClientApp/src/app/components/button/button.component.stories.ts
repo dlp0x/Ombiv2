@@ -29,13 +29,20 @@ const Template: Story<ButtonComponent> = (args: ButtonComponent) => ({
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/angular/writing-stories/args
 Primary.args = {
-  type: 'primary',
+  variant: 'primary',
   text: 'Primary',
 };
 
 export const Secondary = Template.bind({});
 // More on args: https://storybook.js.org/docs/angular/writing-stories/args
 Secondary.args = {
-  type: 'accent',
+  variant: 'secondary',
   text: 'Secondary',
+};
+
+export const Tertiary = Template.bind({});
+// More on args: https://storybook.js.org/docs/angular/writing-stories/args
+Tertiary.args = {
+  variant: 'tertiary',
+  text: 'Tertiary',
 };

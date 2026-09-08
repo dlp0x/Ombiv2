@@ -9,17 +9,19 @@
 
 .card-inner {
     position: relative;
-    border-radius: 8px;
+    border-radius: var(--ombi-radius-xl);
     overflow: hidden;
-    background: #1a2634;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background: var(--ombi-bg-surface-1);
+    border: 1px solid var(--ombi-border-subtle);
+    box-shadow: none;
+    transition: box-shadow 220ms ease-out;
     cursor: pointer;
 
-    &:hover {
-        transform: translateY(-6px) scale(1.03);
-        box-shadow:
-            0 12px 40px rgba(0, 0, 0, 0.5),
-            0 0 0 1px rgba(255, 255, 255, 0.08);
+    // Hover is elevation-only: no scale, no translate — just a subtle
+    // lift in shadow depth, kept deliberately calm.
+    &:hover,
+    &:focus-within {
+        box-shadow: var(--ombi-elevation-1);
     }
 
     &:hover .card-overlay,
@@ -55,7 +57,7 @@
     }
 
     &:focus-visible {
-        outline: 2px solid rgba(255, 255, 255, 0.7);
+        outline: 2px solid var(--ombi-accent);
         outline-offset: -2px;
     }
 }
@@ -71,22 +73,26 @@
 }
 
 // Status badge - top right
+//
+// Kept as a neutral frosted chip (not a semantically-tinted pill per the
+// general badge spec) on purpose: it sits directly on top of poster art of
+// unpredictable color, so a neutral translucent background is what keeps it
+// legible. The dot alone carries the semantic color.
 .status-badge {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: var(--ombi-space-2);
+    right: var(--ombi-space-2);
     display: flex;
     align-items: center;
     gap: 5px;
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 3px var(--ombi-space-3);
+    border-radius: var(--ombi-radius-full);
     background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    font-size: 0.7rem;
-    font-weight: 500;
+    backdrop-filter: blur(12px);
+    font: var(--ombi-text-caption-weight) var(--ombi-text-caption-size) / var(--ombi-text-caption-line) var(--ombi-font-family);
     color: #fff;
     z-index: 3;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
 
     .status-dot {
         width: 6px;
@@ -95,45 +101,44 @@
     }
 
     &.available .status-dot {
-        background: #1DE9B6;
-        box-shadow: 0 0 6px rgba(29, 233, 182, 0.5);
+        background: var(--ombi-success);
+        box-shadow: 0 0 6px color-mix(in srgb, var(--ombi-success) 50%, transparent);
     }
 
     &.approved .status-dot {
-        background: #ffd740;
-        box-shadow: 0 0 6px rgba(255, 215, 64, 0.5);
+        background: var(--ombi-accent);
+        box-shadow: 0 0 6px color-mix(in srgb, var(--ombi-accent) 50%, transparent);
     }
 
     &.denied .status-dot {
-        background: #ef5350;
-        box-shadow: 0 0 6px rgba(239, 83, 80, 0.5);
+        background: var(--ombi-error);
+        box-shadow: 0 0 6px color-mix(in srgb, var(--ombi-error) 50%, transparent);
     }
 
     &.partly-available .status-dot {
-        background: #ffd740;
-        box-shadow: 0 0 6px rgba(255, 215, 64, 0.5);
+        background: var(--ombi-warning);
+        box-shadow: 0 0 6px color-mix(in srgb, var(--ombi-warning) 50%, transparent);
     }
 
     &.requested .status-dot {
-        background: #ff9800;
-        box-shadow: 0 0 6px rgba(255, 152, 0, 0.5);
+        background: var(--ombi-warning);
+        box-shadow: 0 0 6px color-mix(in srgb, var(--ombi-warning) 50%, transparent);
     }
 }
 
-// Type badge - top left
+// Type badge - top left — same neutral chip treatment, see note above.
 .type-badge {
     position: absolute;
-    top: 8px;
-    left: 8px;
-    padding: 2px 8px;
-    border-radius: 4px;
+    top: var(--ombi-space-2);
+    left: var(--ombi-space-2);
+    padding: 2px var(--ombi-space-3);
+    border-radius: var(--ombi-radius-full);
     background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    font-size: 0.7rem;
-    font-weight: 500;
+    backdrop-filter: blur(12px);
+    font: var(--ombi-text-caption-weight) var(--ombi-text-caption-size) / var(--ombi-text-caption-line) var(--ombi-font-family);
     color: rgba(255, 255, 255, 0.8);
     z-index: 3;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
 }
 
 // Hover overlay with title + overview (inside the single link)
@@ -167,10 +172,8 @@
 }
 
 .overlay-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 6px;
+    font: var(--ombi-text-title-3-weight) var(--ombi-text-title-3-size) / var(--ombi-text-title-3-line) var(--ombi-font-family);
+    margin-bottom: var(--ombi-space-1);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -178,9 +181,8 @@
 }
 
 .overlay-overview {
-    font-size: 0.75rem;
+    font: var(--ombi-text-callout-weight) var(--ombi-text-callout-size) / var(--ombi-text-callout-line) var(--ombi-font-family);
     color: rgba(255, 255, 255, 0.7);
-    line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -203,24 +205,37 @@
 }
 
 
-.request-btn {
+// Uses mat-raised-button (Material stays the behavior/a11y engine, per the
+// validated strategy) — visuals re-skinned with design tokens. !important
+// mirrors the existing convention in material-overrides.scss for beating
+// Material's own theme-driven button background.
+.request-btn.mat-raised-button {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: var(--ombi-space-2);
     padding: 8px 0;
     border: none;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.95);
-    color: #0f171f;
-    font-size: 0.8rem;
-    font-weight: 600;
+    border-radius: var(--ombi-radius-md) !important;
+    background: var(--ombi-accent-strong) !important;
+    color: #fff !important;
+    font: var(--ombi-text-body-emphasis-weight) var(--ombi-text-caption-size) / var(--ombi-text-caption-line) var(--ombi-font-family);
+    box-shadow: none !important;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background-color 160ms ease-out;
 
     &:hover {
-        background: #fff;
+        background: var(--ombi-accent) !important;
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--ombi-bg-canvas), 0 0 0 4px var(--ombi-accent) !important;
+    }
+
+    ombi-icon {
+        display: inline-flex;
     }
 
     i {
@@ -229,7 +244,7 @@
 }
 
 .request-menu-item {
-    font-size: 0.85rem;
+    font: var(--ombi-text-callout-weight) var(--ombi-text-callout-size) / var(--ombi-text-callout-line) var(--ombi-font-family);
 }
 
 // Responsive

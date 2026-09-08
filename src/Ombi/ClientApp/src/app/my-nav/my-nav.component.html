@@ -101,6 +101,13 @@
 
             <div class="top-bar-spacer"></div>
 
+            <button type="button" class="theme-toggle-btn" (click)="themeService.toggle()"
+                [attr.aria-label]="'NavigationBar.ChangeTheme' | translate"
+                [matTooltip]="'NavigationBar.ChangeTheme' | translate"
+                [attr.aria-pressed]="themeService.current === 'light'">
+                <ombi-icon [name]="themeService.current === 'dark' ? 'sun' : 'moon'" [size]="18"></ombi-icon>
+            </button>
+
             <div class="profile-block">
                 <a routerLink="/user-preferences" class="profile-link" [attr.aria-label]="userName">
                     <span class="profile-username" data-test="profile-username">{{userName}}</span>

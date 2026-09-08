@@ -30,7 +30,7 @@
             <div *ngIf="is4kEnabled && requestable && result.type === RequestType.movie;then show4K else regular"></div>
             <ng-template #show4K>
                 <button [matMenuTriggerFor]="menu" id="requestButton{{result.id}}{{result.type}}{{discoverType}}" mat-raised-button class="request-btn">
-                    <i *ngIf="!loading" class="fas fa-plus" aria-hidden="true"></i>
+                    <ombi-icon *ngIf="!loading" name="plus" [size]="14" aria-hidden="true"></ombi-icon>
                     <i *ngIf="loading" class="fas fa-spinner fa-pulse" aria-hidden="true"></i>
                     <span>{{'Common.Request' | translate }}</span>
                 </button>
@@ -41,7 +41,7 @@
             </ng-template>
             <ng-template #regular>
                 <button id="requestButton{{result.id}}{{result.type}}{{discoverType}}" *ngIf="requestable" mat-raised-button class="request-btn" (click)="request($event, false)">
-                    <i *ngIf="!loading" class="fas fa-plus" aria-hidden="true"></i>
+                    <ombi-icon *ngIf="!loading" name="plus" [size]="14" aria-hidden="true"></ombi-icon>
                     <i *ngIf="loading" class="fas fa-spinner fa-pulse" aria-hidden="true"></i>
                     <span>{{'Common.Request' | translate }}</span>
                 </button>

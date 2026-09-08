@@ -1,0 +1,11 @@
+// Tailwind entry point. Kept as its own file (rather than inline in
+// _imports.scss) so it's obvious where Tailwind is wired in.
+//
+// Preflight is disabled in tailwind.config.js — Bootstrap/Material/PrimeNG
+// are all still loaded globally and Tailwind's reset would fight them. All
+// classes are also prefixed `tw-` for the same reason. See
+// design-system-proposal-ombiv2-final.md §8.
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

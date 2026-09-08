@@ -13,25 +13,25 @@
 }
 
 .filter-toggle-group {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    background: var(--ombi-bg-surface-1);
+    border: 1px solid var(--ombi-border-subtle);
+    border-radius: var(--ombi-radius-md);
     overflow: hidden;
 
     .filter-toggle {
         background: transparent;
-        color: rgba(255, 255, 255, 0.5);
+        color: var(--ombi-text-secondary);
         border-left: none;
         transition: all 0.2s ease;
 
         &:hover {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--ombi-text-primary);
         }
     }
 
     .filter-active {
-        background: rgba(255, 255, 255, 0.1);
-        color: #fff;
+        background: var(--ombi-accent-subtle);
+        color: var(--ombi-text-primary);
     }
 
     ::ng-deep .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
@@ -47,7 +47,7 @@
     }
 
     ::ng-deep .mat-button-toggle-button:focus-visible {
-        outline: 2px solid rgba(255, 255, 255, 0.7);
+        outline: 2px solid var(--ombi-accent);
         outline-offset: -2px;
     }
 }
@@ -61,21 +61,38 @@
     display: none !important;
 }
 
-// Carousel navigation arrows
+// Carousel navigation arrows — re-skinned with tokens, PrimeNG component and
+// markup untouched (see design-system-proposal-ombiv2-final.md §7: p-carousel
+// is kept functionally, not replaced, this sprint).
 :host ::ng-deep .p-carousel-prev,
 :host ::ng-deep .p-carousel-next {
-    background: rgba(15, 23, 31, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: #fff !important;
-    border-radius: 50% !important;
+    background: var(--ombi-bg-surface-2) !important;
+    border: 1px solid var(--ombi-border-subtle) !important;
+    color: var(--ombi-text-primary) !important;
+    border-radius: var(--ombi-radius-full) !important;
     width: 40px !important;
     height: 40px !important;
-    transition: all 0.2s ease !important;
-    backdrop-filter: blur(8px);
+    transition: background-color 0.2s ease, border-color 0.2s ease !important;
+    backdrop-filter: blur(12px);
 
     &:hover {
-        background: rgba(255, 255, 255, 0.15) !important;
-        border-color: rgba(255, 255, 255, 0.3) !important;
+        background: var(--ombi-bg-surface-3) !important;
+        border-color: var(--ombi-border-strong) !important;
+    }
+
+    &:focus-visible {
+        outline: none !important;
+        box-shadow: 0 0 0 2px var(--ombi-bg-canvas), 0 0 0 4px var(--ombi-accent) !important;
+    }
+}
+
+// Skeleton loading — shimmer color aligned with surface tokens, same
+// component (p-skeleton) and layout, not replaced this sprint.
+:host ::ng-deep .p-skeleton {
+    background-color: var(--ombi-bg-surface-2) !important;
+
+    &::after {
+        background: linear-gradient(90deg, transparent, var(--ombi-bg-surface-3), transparent) !important;
     }
 }
 

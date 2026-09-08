@@ -22,6 +22,8 @@ import { StorageService } from '../shared/storage/storage-service';
 import { map, take } from 'rxjs/operators';
 import { RemainingRequestsComponent } from '../shared/remaining-requests/remaining-requests.component';
 import { NavSearchComponent } from './nav-search.component';
+import { ThemeService } from '../shared/theme/theme.service';
+import { IconComponent } from '../components';
 
 export enum SearchFilterType {
   Movie = 1,
@@ -45,7 +47,8 @@ export enum SearchFilterType {
         RouterModule,
         TranslateModule,
         RemainingRequestsComponent,
-        NavSearchComponent
+        NavSearchComponent,
+        IconComponent
     ]
 })
 export class MyNavComponent implements OnInit {
@@ -64,7 +67,6 @@ export class MyNavComponent implements OnInit {
   @Input() public userEmail: string;
   @Input() public isAdmin: string;
   @Output() public logoutClick = new EventEmitter();
-  public theme: string;
   public issuesEnabled: boolean = false;
   public navItems: INavBar[];
   public searchFilter: SearchFilter;
@@ -85,7 +87,8 @@ export class MyNavComponent implements OnInit {
     private filterService: FilterService,
     private dialogService: MatDialog,
     private readonly settingState: SettingsStateService,
-    private router: Router) {
+    private router: Router,
+    public readonly themeService: ThemeService) {
   }
 
   public async ngOnInit() {
@@ -104,10 +107,7 @@ export class MyNavComponent implements OnInit {
       this.customizationSettings = settings;
     });
 
-    this.theme = this.store.get("theme");
-    if (!this.theme) {
-      this.store.save("theme", "dark");
-    }
+    this.themeService.init();
     var filter = this.store.get("searchFilter");
     if (filter) {
       this.searchFilter = Object.assign(new SearchFilter(), JSON.parse(filter));

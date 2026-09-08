@@ -1,0 +1,8 @@
+// Ombi design tokens — single entry point.
+// Imported once from src/styles/_imports.scss.
+
+@use "./colors";
+@use "./typography";
+@use "./spacing";
+@use "./radius";
+@use "./elevation";

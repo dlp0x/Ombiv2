@@ -1,0 +1,61 @@
+// Ombi design tokens — colors
+//
+// Single source of truth, consumed by Tailwind (tailwind.config.js →
+// theme.extend.colors), by Material overrides (material-overrides.scss) and,
+// later, by PrimeNG overrides — see design-system-proposal-ombiv2-final.md §1.
+//
+// Dark is the default theme (matches current app behaviour). Light is opted
+// into via [data-theme="light"] on <html>, set by ThemeService.
+
+:root {
+    // Surfaces
+    --ombi-bg-canvas: #0B0C0F;
+    --ombi-bg-surface-1: #17181C;
+    --ombi-bg-surface-2: #1F2126;
+    --ombi-bg-surface-3: #26282E;
+
+    // Borders
+    --ombi-border-subtle: rgba(255, 255, 255, 0.08);
+    --ombi-border-strong: rgba(255, 255, 255, 0.16);
+
+    // Text
+    --ombi-text-primary: #F5F5F7;
+    --ombi-text-secondary: rgba(245, 245, 247, 0.62);
+    --ombi-text-tertiary: rgba(245, 245, 247, 0.38);
+
+    // Accent — two tones of the same hue. `--ombi-accent` is for decorative /
+    // non-text usage (icons, borders, tinted fills): 4.81:1 on canvas, meets
+    // the 3:1 non-text bar. `--ombi-accent-strong` is for text and filled
+    // buttons: 5.61:1 in both themes, meets the 4.5:1 text bar. Verified by
+    // WCAG contrast calculation during Phase 2 — not a stylistic choice.
+    --ombi-accent: #6C6FF0;
+    --ombi-accent-strong: #5457D9;
+    --ombi-accent-subtle: rgba(108, 111, 240, 0.16);
+
+    // Semantic
+    --ombi-success: #3FB855;
+    --ombi-warning: #E3A008;
+    --ombi-error: #E5484D;
+}
+
+[data-theme="light"] {
+    --ombi-bg-canvas: #F5F5F7;
+    --ombi-bg-surface-1: #FFFFFF;
+    --ombi-bg-surface-2: #FFFFFF;
+    --ombi-bg-surface-3: #EDEDF0;
+
+    --ombi-border-subtle: rgba(0, 0, 0, 0.08);
+    --ombi-border-strong: rgba(0, 0, 0, 0.16);
+
+    --ombi-text-primary: #1D1D1F;
+    --ombi-text-secondary: rgba(29, 29, 31, 0.62);
+    --ombi-text-tertiary: rgba(29, 29, 31, 0.38);
+
+    --ombi-accent: #6C6FF0;
+    --ombi-accent-strong: #5457D9;
+    --ombi-accent-subtle: rgba(108, 111, 240, 0.10);
+
+    --ombi-success: #2A9D3F;
+    --ombi-warning: #B87400;
+    --ombi-error: #C4262B;
+}

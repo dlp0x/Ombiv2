@@ -1,0 +1,67 @@
+// ombi-button — reference implementation of the button hierarchy from
+// design-system-proposal-ombiv2-final.md §5/§7. Material stays the engine
+// (mat-raised-button, keeps ripple/focus/a11y); visuals only are re-skinned
+// here, same convention as material-overrides.scss.
+
+:host {
+    display: inline-block;
+}
+
+.ombi-button {
+    font-family: var(--ombi-font-family);
+    font-size: var(--ombi-text-body-size);
+    line-height: var(--ombi-text-body-line);
+    font-weight: var(--ombi-text-body-emphasis-weight);
+    padding: 0 var(--ombi-space-6);
+    height: 40px;
+    border: none;
+    box-shadow: none !important;
+    transition: background-color 160ms ease-out, color 160ms ease-out;
+
+    &:disabled {
+        opacity: 0.38;
+        cursor: not-allowed;
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--ombi-bg-canvas), 0 0 0 4px var(--ombi-accent) !important;
+    }
+
+    &:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+}
+
+// Primary — radius-md, filled with the text-safe accent tone.
+.ombi-button--primary {
+    background-color: var(--ombi-accent-strong) !important;
+    color: #FFFFFF !important;
+    border-radius: var(--ombi-radius-md) !important;
+
+    &:hover:not(:disabled) {
+        background-color: var(--ombi-accent) !important;
+    }
+}
+
+// Secondary — radius-md, tinted rather than filled.
+.ombi-button--secondary {
+    background-color: var(--ombi-accent-subtle) !important;
+    color: var(--ombi-accent-strong) !important;
+    border-radius: var(--ombi-radius-md) !important;
+
+    &:hover:not(:disabled) {
+        filter: brightness(1.1);
+    }
+}
+
+// Tertiary/ghost — radius-sm, no fill until interacted with.
+.ombi-button--tertiary {
+    background-color: transparent !important;
+    color: var(--ombi-text-primary) !important;
+    border-radius: var(--ombi-radius-sm) !important;
+
+    &:hover:not(:disabled) {
+        background-color: var(--ombi-bg-surface-2) !important;
+    }
+}

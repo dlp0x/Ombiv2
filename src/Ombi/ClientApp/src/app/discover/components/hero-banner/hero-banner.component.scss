@@ -47,10 +47,14 @@
 }
 
 .hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0 0 16px 0;
-    color: #fff;
+    font-family: var(--ombi-font-family);
+    font-size: var(--ombi-text-display-size);
+    font-weight: var(--ombi-text-display-weight);
+    margin: 0 0 var(--ombi-space-4) 0;
+    // Fixed light color, not the theme-dependent text-primary token: this
+    // sits on the hero's own dark image scrim (below), independent of
+    // light/dark app theme — same reasoning as the media-card overlay text.
+    color: #FFFFFF;
     line-height: 1.05;
     letter-spacing: -0.5px;
 }
@@ -85,10 +89,11 @@
 }
 
 .hero-overview {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.75);
+    font-family: var(--ombi-font-family);
+    font-size: var(--ombi-text-callout-size);
     line-height: 1.6;
-    margin: 0 0 28px 0;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 var(--ombi-space-8) 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -104,27 +109,27 @@
 .hero-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--ombi-space-2);
     padding: 12px 28px;
-    background: #fff;
+    background: var(--ombi-accent-strong);
     border: none;
-    border-radius: 4px;
-    color: #0f171f;
-    font-size: 0.95rem;
-    font-weight: 600;
+    border-radius: var(--ombi-radius-md);
+    color: #FFFFFF;
+    font-family: var(--ombi-font-family);
+    font-size: var(--ombi-text-body-size);
+    font-weight: var(--ombi-text-body-emphasis-weight);
     text-decoration: none;
-    transition: background 0.2s ease, transform 0.15s ease;
+    transition: background-color 160ms ease-out;
 
     &:hover {
-        background: rgba(255, 255, 255, 0.85);
-        color: #0f171f;
+        background: var(--ombi-accent);
+        color: #FFFFFF;
         text-decoration: none;
-        transform: scale(1.02);
     }
 
     &:focus-visible {
-        outline: 2px solid #0f171f;
-        outline-offset: 2px;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(15, 23, 31, 0.9), 0 0 0 4px var(--ombi-accent);
     }
 
     i {
@@ -135,28 +140,29 @@
 .hero-cta-secondary {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--ombi-space-2);
     padding: 12px 28px;
     background: rgba(255, 255, 255, 0.1);
     border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 0.95rem;
-    font-weight: 500;
+    border-radius: var(--ombi-radius-md);
+    color: #FFFFFF;
+    font-family: var(--ombi-font-family);
+    font-size: var(--ombi-text-body-size);
+    font-weight: var(--ombi-text-body-weight);
     text-decoration: none;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: background 0.2s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background-color 160ms ease-out;
 
     &:hover {
         background: rgba(255, 255, 255, 0.2);
-        color: #fff;
+        color: #FFFFFF;
         text-decoration: none;
     }
 
     &:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 2px;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(15, 23, 31, 0.9), 0 0 0 4px var(--ombi-accent);
     }
 }
 

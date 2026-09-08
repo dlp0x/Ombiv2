@@ -53,6 +53,34 @@
     flex: 1;
 }
 
+// Light/dark toggle — the one bit of my-nav touched this sprint, styled
+// with tokens so it works in both themes. The rest of my-nav keeps its
+// existing look for now (out of scope, see design-system-proposal
+// -ombiv2-final.md §10).
+.theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    color: var(--ombi-text-secondary);
+    cursor: pointer;
+    border-radius: var(--ombi-radius-sm);
+    transition: background-color 160ms ease-out, color 160ms ease-out;
+
+    &:hover {
+        background: var(--ombi-bg-surface-2);
+        color: var(--ombi-text-primary);
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--ombi-bg-canvas), 0 0 0 4px var(--ombi-accent);
+    }
+}
+
 // ─── Filter Chips ────────────────────────────────────────
 .filter-chips {
     display: flex;
